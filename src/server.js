@@ -1,5 +1,7 @@
 // const express = require('express')
 import express from 'express'
+import userRouter from './routers/userRouter.js'
+import postRouter from './routers/postRouter.js'
 
 
 const app = express()
@@ -9,25 +11,9 @@ app.get('/', (req, res) => {
     res.send('Olá mundo!')
 })
 
-app.get('/user', (req, res) => {
-    res.send('Aqui está a lista de usuários!')
-})
+app.use('/user', userRouter)
 
-app.post('/user', (req, res) => {
-    res.send('Usuário criado!')
-})
-
-app.put('/user', (req, res) => {
-    res.send('Cadastro atualizado!')
-})
-
-app.patch('/user', (req, res) => {
-    res.send('Nome de usuário alterado!')
-})
-
-app.delete('/user', (req, res) => {
-    res.send('Usuário deletado!')
-})
+app.use('/post', postRouter)
 
 app.listen(port, () => {
     console.log(`Servidor rodando em  http://localhost:${port}`)
