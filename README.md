@@ -13,3 +13,11 @@
 - O que é um padrão de projeto?
 - O que é o padrão de projeto MVC?
 - Qual a responsabilidade de cada Camada?
+
+#### Comandos Prisma
+
+- npm i prisma -D
+- npm i dotenv -D
+
+Init
+- npx prisma init --datasource

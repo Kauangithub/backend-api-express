@@ -1,3 +1,3 @@
-export function updatePostController(req,res) {
+export function updatePubliController(req,res) {
     res.send("Post atualizado pelo PostController")
 }
