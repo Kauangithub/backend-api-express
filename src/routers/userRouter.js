@@ -4,13 +4,15 @@ import { createUserController } from '../controllers/user/createUserController.j
 import { updateUserController } from '../controllers/user/updateUserController.js'
 import { updateAvatarUserController } from '../controllers/user/updateAvatarUserController.js'
 import { deleteUserController } from '../controllers/user/deleteUserController.js'
+import { logger } from '../middlewares/logger.js'
 
 const router = express.Router()
 
-router.get('/', getUsersController)
+router.use(logger)
+router.get('/', logger, getUsersController)
 router.post('/', createUserController)
-router.put('/', updateUserController)
-router.patch('/', updateAvatarUserController)
-router.delete('/', deleteUserController)
+router.put('/:id', updateUserController)
+router.patch('/:id', updateAvatarUserController)
+router.delete('/:id', deleteUserController)
 
 export default router
